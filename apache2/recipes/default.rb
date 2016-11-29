@@ -18,10 +18,17 @@
 #
 
 package 'apache2' do
-  package_name value_for_platform_family(:rhel => "httpd", :debian => "apache2")
+  package_name value_for_platform_family(:rhel => "httpd24", :debian => "apache2")
   retries 3
   retry_delay 5
   action :install
+end
+
+#Remove Default Apache Auto Index and User Directory Config Files.
+['autoindex.conf','userdir.conf'].each do |conffile| 
+  file "/etc/httpd/conf.d/#{conffile}" do
+    action :delete
+  end
 end
 
 include_recipe 'apache2::service'
@@ -236,6 +243,10 @@ include_recipe 'apache2::mod_log_config' if platform_family?('rhel')
 include_recipe 'apache2::mod_ssl'
 include_recipe 'apache2::mod_expires'
 include_recipe 'apache2::logrotate'
+include_recipe 'apache2::prefork'
+include_recipe 'apache2::unixd'
+include_recipe 'apache2::mod_access_compat'
+include_recipe 'apache2::mod_socache_shmcb'
 
 bash 'logdir_existence_and_restart_apache2' do
   action :run
