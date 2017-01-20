@@ -7,6 +7,7 @@ node[:deploy].each do |application, deploy|
       chmod -R 777 storage/
       EOH
       cwd deploy[:current_path]
+      ignore_failure true
     end
   end  
 end
