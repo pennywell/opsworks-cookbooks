@@ -1,5 +1,5 @@
 node[:deploy].each do |application, deploy|
-  if defined? deploy["laravel"] && deploy["laravel"]] == "true"
+  if defined? deploy["environment_variables"]["laravel"] && deploy["environment_variables"]["laravel"] == "true"
     bash 'laravel-deploy' do
       code <<-EOH
       cp .env.example .env
