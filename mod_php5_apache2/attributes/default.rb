@@ -38,16 +38,16 @@ when 'debian'
   ]
 when 'rhel'
   packages = [
-    "php70",
-    "php70-xml",
-    "php70-common",
-    "php70-xmlrpc",
-    "php70-gd",
-    "php70-cli",
-    "php70-mcrypt",
+    "php71",
+    "php71-xml",
+    "php71-common",
+    "php71-xmlrpc",
+    "php71-gd",
+    "php71-cli",
+    "php71-mcrypt",
     "php7-pear",
-    "php70-devel",
-    "php70-mbstring"
+    "php71-devel",
+    "php71-mbstring"
   ]
 end
 
