@@ -15,14 +15,14 @@ describe_recipe "mod_php5_apache2::default" do
         when "debian"
           packages << "php-mysql"
         when "rhel"
-          packages << "php70-mysqlnd"
+          packages << "php71-mysqlnd"
         end
       when "postgresql"
         case node[:platform_family]
         when "debian"
           packages << "php5-pgsql"
         when "rhel"
-          packages << "php70-pgsql"
+          packages << "php71-pgsql"
         end
       end
     end
