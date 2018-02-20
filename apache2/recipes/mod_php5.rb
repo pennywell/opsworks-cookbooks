@@ -47,6 +47,6 @@ end
 
 apache_module 'php7' do
   if platform_family?('rhel')
-    filename 'libphp-7.0.so'
+    filename 'libphp-7.1.so'
   end
 end
